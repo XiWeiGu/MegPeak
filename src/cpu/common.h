@@ -18,6 +18,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <cstring>
 
 #ifndef __APPLE__
 #include <malloc.h>
@@ -63,6 +64,34 @@ inline static float get_relative_diff(float lhs, float rhs) {
     return rel_diff;
 }
 
+#if MEGPEAK_LOONGARCH
+static float cpu_freq = 0.0f;
+inline static float get_cpu_freq() {
+    char file_path[100];
+    snprintf(file_path, sizeof(file_path), "/proc/cpuinfo");
+
+    FILE *file = fopen(file_path, "r");
+    if (file == NULL) {
+        printf("Failed to read /proc/cpuinfo.\n");
+        return 0.0;
+    }
+
+    char line[256];
+    char freq_str[10];
+    double max_freq = 0.0;
+
+    while (fgets(line, sizeof(line), file) != NULL) {
+        if (strncmp(line, "CPU MHz", 7) == 0) {
+            sscanf(line, "CPU MHz : %s", freq_str);
+            max_freq = atof(freq_str) / 1000.0; // Convert to GHz
+            break;
+        }
+    }
+    fclose(file);
+    return max_freq;
+}
+#endif
+
 /**
  * latency:
  *
@@ -102,9 +131,16 @@ inline static void benchmark(std::function<int()> throughtput_func,
     timer.reset();
     runs = latency_func();
     float latency_used = timer.get_nsecs() / runs;
+#if MEGPEAK_LOONGARCH
+    cpu_freq = get_cpu_freq();
+    printf("%s throughput: %f ns %f cycles %f GFlops latency: %f ns %f cycles :%s\n", inst,
+           throuphput_used, throuphput_used * cpu_freq, 1.f / throuphput_used * inst_simd, latency_used,
+           latency_used * cpu_freq, msg.c_str());
+#else
     printf("%s throughput: %f ns %f GFlops latency: %f ns :%s\n", inst,
            throuphput_used, 1.f / throuphput_used * inst_simd, latency_used,
            msg.c_str());
+#endif
 }
 
 #define UNROLL_RAW5(cb, v0, a...) \
