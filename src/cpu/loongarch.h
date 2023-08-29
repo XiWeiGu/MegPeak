@@ -166,6 +166,371 @@ THROUGHPUT_MEM(cb, xvstelm_d)
 LATENCY_MEM(cb, xvstelm_d)
 #undef cb
 
+// Vector integer arithmetic instructions
+#define cb(i) "xvadd.b    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvadd_b)
+#undef cb
+#define cb(i) "xvadd.b    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvadd_b)
+#undef cb
+
+#define cb(i) "xvadd.h    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvadd_h)
+#undef cb
+#define cb(i) "xvadd.h    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvadd_h)
+#undef cb
+
+#define cb(i) "xvadd.w    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvadd_w)
+#undef cb
+#define cb(i) "xvadd.w    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvadd_w)
+#undef cb
+
+#define cb(i) "xvadd.d    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvadd_d)
+#undef cb
+#define cb(i) "xvadd.d    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvadd_d)
+#undef cb
+
+#define cb(i) "xvsub.b    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsub_b)
+#undef cb
+#define cb(i) "xvsub.b    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsub_b)
+#undef cb
+
+#define cb(i) "xvsub.h    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsub_h)
+#undef cb
+#define cb(i) "xvsub.h    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsub_h)
+#undef cb
+
+#define cb(i) "xvsub.w    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsub_w)
+#undef cb
+#define cb(i) "xvsub.w    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsub_w)
+#undef cb
+
+#define cb(i) "xvsub.d    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsub_d)
+#undef cb
+#define cb(i) "xvsub.d    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsub_d)
+#undef cb
+
+#define cb(i) "xvaddi.bu    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvaddi_bu)
+#undef cb
+#define cb(i) "xvaddi.bu    $xr0,   $xr0,   0 \n"
+LATENCY(cb, xvaddi_bu)
+#undef cb
+
+#define cb(i) "xvaddi.hu    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvaddi_hu)
+#undef cb
+#define cb(i) "xvaddi.hu    $xr0,   $xr0,   0 \n"
+LATENCY(cb, xvaddi_hu)
+#undef cb
+
+#define cb(i) "xvaddi.wu    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvaddi_wu)
+#undef cb
+#define cb(i) "xvaddi.wu    $xr0,   $xr0,  0 \n"
+LATENCY(cb, xvaddi_wu)
+#undef cb
+
+#define cb(i) "xvaddi.du    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvaddi_du)
+#undef cb
+#define cb(i) "xvaddi.du    $xr0,   $xr0,   0 \n"
+LATENCY(cb, xvaddi_du)
+#undef cb
+
+#define cb(i) "xvsubi.bu    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvsubi_bu)
+#undef cb
+#define cb(i) "xvsubi.bu    $xr0,   $xr0,   0 \n"
+LATENCY(cb, xvsubi_bu)
+#undef cb
+
+#define cb(i) "xvsubi.hu    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvsubi_hu)
+#undef cb
+#define cb(i) "xvsubi.hu    $xr0,   $xr0,   0 \n"
+LATENCY(cb, xvsubi_hu)
+#undef cb
+
+#define cb(i) "xvsubi.wu    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvsubi_wu)
+#undef cb
+#define cb(i) "xvsubi.wu    $xr0,   $xr0,  0 \n"
+LATENCY(cb, xvsubi_wu)
+#undef cb
+
+#define cb(i) "xvsubi.du    $xr" #i",    $xr" #i ",  0 \n"
+THROUGHPUT(cb, xvsubi_du)
+#undef cb
+#define cb(i) "xvsubi.du    $xr0,   $xr0,   0 \n"
+LATENCY(cb, xvsubi_du)
+#undef cb
+
+#define cb(i) "xvneg.b      $xr" #i ",      $xr" #i " \n"
+THROUGHPUT(cb, xvneg_b)
+#undef cb
+#define cb(i) "xvneg.b      $xr0,   $xr0 \n"
+LATENCY(cb, xvneg_b)
+#undef cb
+
+#define cb(i) "xvneg.h      $xr" #i ",      $xr" #i " \n"
+THROUGHPUT(cb, xvneg_h)
+#undef cb
+#define cb(i) "xvneg.h      $xr0,   $xr0 \n"
+LATENCY(cb, xvneg_h)
+#undef cb
+
+#define cb(i) "xvneg.w      $xr" #i ",      $xr" #i " \n"
+THROUGHPUT(cb, xvneg_w)
+#undef cb
+#define cb(i) "xvneg.w      $xr0,   $xr0 \n"
+LATENCY(cb, xvneg_w)
+#undef cb
+
+#define cb(i) "xvneg.d      $xr" #i ",      $xr" #i " \n"
+THROUGHPUT(cb, xvneg_d)
+#undef cb
+#define cb(i) "xvneg.d      $xr0,   $xr0 \n"
+LATENCY(cb, xvneg_d)
+#undef cb
+
+#define cb(i) "xvsadd.b    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_b)
+#undef cb
+#define cb(i) "xvsadd.b    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_b)
+#undef cb
+
+#define cb(i) "xvsadd.h    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_h)
+#undef cb
+#define cb(i) "xvsadd.h    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_h)
+#undef cb
+
+#define cb(i) "xvsadd.w    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_w)
+#undef cb
+#define cb(i) "xvsadd.w    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_w)
+#undef cb
+
+#define cb(i) "xvsadd.d    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_d)
+#undef cb
+#define cb(i) "xvsadd.d    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_d)
+#undef cb
+
+#define cb(i) "xvsadd.bu    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_bu)
+#undef cb
+#define cb(i) "xvsadd.bu    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_bu)
+#undef cb
+
+#define cb(i) "xvsadd.hu    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_hu)
+#undef cb
+#define cb(i) "xvsadd.hu    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_hu)
+#undef cb
+
+#define cb(i) "xvsadd.wu    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_wu)
+#undef cb
+#define cb(i) "xvsadd.wu    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_wu)
+#undef cb
+
+#define cb(i) "xvsadd.du    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvsadd_du)
+#undef cb
+#define cb(i) "xvsadd.du    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvsadd_du)
+#undef cb
+
+#define cb(i) "xvssub.b    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_b)
+#undef cb
+#define cb(i) "xvssub.b    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_b)
+#undef cb
+
+#define cb(i) "xvssub.h    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_h)
+#undef cb
+#define cb(i) "xvssub.h    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_h)
+#undef cb
+
+#define cb(i) "xvssub.w    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_w)
+#undef cb
+#define cb(i) "xvssub.w    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_w)
+#undef cb
+
+#define cb(i) "xvssub.d    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_d)
+#undef cb
+#define cb(i) "xvssub.d    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_d)
+#undef cb
+
+#define cb(i) "xvssub.bu    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_bu)
+#undef cb
+#define cb(i) "xvssub.bu    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_bu)
+#undef cb
+
+#define cb(i) "xvssub.hu    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_hu)
+#undef cb
+#define cb(i) "xvssub.hu    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_hu)
+#undef cb
+
+#define cb(i) "xvssub.wu    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_wu)
+#undef cb
+#define cb(i) "xvssub.wu    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_wu)
+#undef cb
+
+#define cb(i) "xvssub.du    $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvssub_du)
+#undef cb
+#define cb(i) "xvssub.du    $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvssub_du)
+#undef cb
+
+#define cb(i) "xvhaddw.h.b  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_h_b)
+#undef cb
+#define cb(i) "xvhaddw.h.b  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_h_b)
+#undef cb
+
+#define cb(i) "xvhaddw.w.h  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_w_h)
+#undef cb
+#define cb(i) "xvhaddw.w.h  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_w_h)
+#undef cb
+
+#define cb(i) "xvhaddw.d.w  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_d_w)
+#undef cb
+#define cb(i) "xvhaddw.d.w  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_d_w)
+#undef cb
+
+#define cb(i) "xvhaddw.q.d  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_q_d)
+#undef cb
+#define cb(i) "xvhaddw.q.d  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_q_d)
+#undef cb
+
+#define cb(i) "xvhaddw.hu.bu  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_hu_bu)
+#undef cb
+#define cb(i) "xvhaddw.hu.bu  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_hu_bu)
+#undef cb
+
+#define cb(i) "xvhaddw.wu.hu  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_wu_hu)
+#undef cb
+#define cb(i) "xvhaddw.wu.hu  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_wu_hu)
+#undef cb
+
+#define cb(i) "xvhaddw.du.wu  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_du_wu)
+#undef cb
+#define cb(i) "xvhaddw.du.wu  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_du_wu)
+#undef cb
+
+#define cb(i) "xvhaddw.qu.du  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhaddw_qu_du)
+#undef cb
+#define cb(i) "xvhaddw.qu.du  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhaddw_qu_du)
+#undef cb
+
+#define cb(i) "xvhsubw.h.b  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_h_b)
+#undef cb
+#define cb(i) "xvhsubw.h.b  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_h_b)
+#undef cb
+
+#define cb(i) "xvhsubw.w.h  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_w_h)
+#undef cb
+#define cb(i) "xvhsubw.w.h  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_w_h)
+#undef cb
+
+#define cb(i) "xvhsubw.d.w  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_d_w)
+#undef cb
+#define cb(i) "xvhsubw.d.w  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_d_w)
+#undef cb
+
+#define cb(i) "xvhsubw.q.d  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_q_d)
+#undef cb
+#define cb(i) "xvhsubw.q.d  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_q_d)
+#undef cb
+
+#define cb(i) "xvhsubw.hu.bu  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_hu_bu)
+#undef cb
+#define cb(i) "xvhsubw.hu.bu  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_hu_bu)
+#undef cb
+
+#define cb(i) "xvhsubw.wu.hu  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_wu_hu)
+#undef cb
+#define cb(i) "xvhsubw.wu.hu  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_wu_hu)
+#undef cb
+
+#define cb(i) "xvhsubw.du.wu  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_du_wu)
+#undef cb
+#define cb(i) "xvhsubw.du.wu  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_du_wu)
+#undef cb
+
+#define cb(i) "xvhsubw.qu.du  $xr" #i",    $xr" #i ",  $xr" #i " \n"
+THROUGHPUT(cb, xvhsubw_qu_du)
+#undef cb
+#define cb(i) "xvhsubw.qu.du  $xr0,   $xr0,   $xr0 \n"
+LATENCY(cb, xvhsubw_qu_du)
+#undef cb
+
 // Vector floating-point arithmetic instructions
 #define cb(i) "xvfadd.s    $xr" #i ",   $xr" #i ",  $xr" #i " \n"
 THROUGHPUT(cb, xvfadd_s)
