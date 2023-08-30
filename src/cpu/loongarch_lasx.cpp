@@ -11,11 +11,13 @@
 
 #include "src/cpu/common.h"
 #include "src/cpu/loongarch.h"
+#include "src/cpu/loongarch_quad_issue.h"
 #include "src/cpu/loongarch_utils.h"
 
 #if MEGPEAK_LOONGARCH
 void megpeak::loongarch_lasx() {
     if (is_supported(SIMDType::LASX)) {
+#if 0
         benchmark(xvld_throughput, xvld_latency, "xvld", 8);
         benchmark(xvst_throughput, xvst_latency, "xvst", 8);
         benchmark(xvldx_throughput, xvldx_latency, "xvldx", 8);
@@ -117,6 +119,9 @@ void megpeak::loongarch_lasx() {
         benchmark(xvhsubw_wu_hu_throughput, xvhsubw_wu_hu_latency, "xvhsubw.wu.hu", 16);
         benchmark(xvhsubw_du_wu_throughput, xvhsubw_du_wu_latency, "xvhsubw.du.wu", 8);
         benchmark(xvhsubw_qu_du_throughput, xvhsubw_qu_du_latency, "xvhsubw.qu.du", 4);
+#endif
+
+        loongarch_quad_issue();
     }
 }
 #else
