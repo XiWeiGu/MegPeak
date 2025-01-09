@@ -238,6 +238,7 @@ void armv7();
 void x86_avx();
 void x86_sse();
 void loongarch_lasx();
+void loongarch();
 }  // namespace megpeak
 namespace {
 /**
